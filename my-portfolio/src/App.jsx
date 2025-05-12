@@ -1,18 +1,12 @@
-import React from 'react'
-import Home from './pages/Home'
-import Projects from './pages/Projects'
-import About from './pages/About'
-import Contact from './pages/Contact'
+import React from "react";
+
 
 function App() {
   return (
-    <div className="font-sans text-gray-800">
-      <Home />
-      <Projects />
-      <About />
-      <Contact />
+    <div className="text-3xl font-bold text-purple-600">
+      Tailwind is working! 🎉
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
