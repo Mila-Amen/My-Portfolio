@@ -7,7 +7,7 @@ import { LanguageContext } from "../context/LanguageContext.jsx";
 const navLabels = {
   EN: {
     home: "Home",
-    about: "About",
+    about: "About me",
     projects: "Projects",
     services: "Services",
     contact: "Contact",

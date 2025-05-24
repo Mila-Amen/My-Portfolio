@@ -2,7 +2,8 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import VerticalSidebar from "../components/VerticalSidebar";
 import HeroSection from "../components/HeroSection";
-
+import SkillMarquee from "../components/SkillMarquee";
+import ProjectShowcase from "./Projects";
 
 
 function Home() {
@@ -11,6 +12,8 @@ function Home() {
       <Navbar />
       <VerticalSidebar />
       <HeroSection />
+      <ProjectShowcase/>
+      <SkillMarquee/>
     </main>
   );
 }
