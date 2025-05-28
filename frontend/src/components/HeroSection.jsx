@@ -1,9 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { LanguageContext } from "../context/LanguageContext.jsx";
+import VerticalSidebar from "./VerticalSidebar.jsx";
 
 export default function HeroSection() {
   const { language } = useContext(LanguageContext);
+  const [showSidebar, setShowSidebar] = useState(true);
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const bottom = heroRef.current?.getBoundingClientRect().bottom;
+      if (bottom && bottom <= 0) {
+        setShowSidebar(false);
+      } else {
+        setShowSidebar(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const content = {
     EN: {
@@ -35,7 +52,16 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="bg-black flex flex-col md:flex-row items-center justify-between px-6 sm:px-10 pt-32 pb-20 min-h-screen">
+    <section
+      ref={heroRef}
+      className="relative bg-black flex flex-col md:flex-row items-center justify-between px-6 sm:px-10 pt-32 pb-20 min-h-screen">
+      {showSidebar && (
+        <div className="mr-6 md:mr-10 lg:mr-16">
+          {" "}
+          {/* Add right margin here */}
+          <VerticalSidebar />
+        </div>
+      )}
       <div className="relative w-full md:w-1/2 h-[400px] sm:h-[600px] md:h-auto flex justify-center md:block">
         <img
           src="/MillionDanielCutout.png"
@@ -46,7 +72,7 @@ export default function HeroSection() {
 
       <div className="w-full md:w-1/2 mt-10 md:mt-0 md:pl-12 text-center md:text-left">
         <p className="text-teal-400 text-lg mb-4">{content[language].role}</p>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug mb-4">
+        <h2 className="text-3xl sm:text-3xl md:text-4xl font-bold leading-snug mb-4">
           {content[language].heading}
         </h2>
         <p className="text-gray-300 text-base sm:text-lg mb-6 font-bold">
@@ -56,8 +82,7 @@ export default function HeroSection() {
           href={`https://wa.me/4915736711429?text=${encodeURIComponent(
             content[language].whatsappText
           )}`}
-          className="mx-auto md:mx-0 flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white px-6 py-3 rounded-full w-max shadow-lg"
-        >
+          className="mx-auto md:mx-0 flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white px-6 py-3 rounded-full w-max shadow-lg">
           <FaWhatsapp className="text-xl" /> {content[language].whatsappLabel}
         </a>
       </div>

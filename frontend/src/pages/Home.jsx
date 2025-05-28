@@ -10,7 +10,6 @@ function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-black to-gray-900 text-white font-sans relative overflow-hidden">
       <Navbar />
-      <VerticalSidebar />
       <HeroSection />
       <ProjectShowcase/>
       <SkillMarquee/>
