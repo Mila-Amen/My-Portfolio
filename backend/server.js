@@ -11,10 +11,12 @@ import { dirname } from "path";
 dotenv.config();
 
 const app = express();
+
 const PORT = process.env.PORT || 5002;
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static("views"));
 
 // For __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -29,6 +31,10 @@ const saveMessageToFile = ({ name, email, message }) => {
   existing.push({ name, email, message, date: new Date().toISOString() });
   fs.writeFileSync(filePath, JSON.stringify(existing, null, 2));
 };
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "index.html"));
+});
 
 // Test email route
 app.get("/test-email", async (req, res) => {
