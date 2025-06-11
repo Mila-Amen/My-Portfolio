@@ -151,7 +151,7 @@ export default function Contact() {
               required
             />
             <ReCAPTCHA
-              sitekey="6LdkFEorAAAAAPbSgRp4rKXD3S9mPVh48e-DRCgF"
+              sitekey="6Lc5S10rAAAAAIlGZ-k1W0UuVDCdL9GwCpwc2lzx"
               onChange={setCaptchaValue}
               onExpired={() => setCaptchaValue(null)}
               className="mt-6"
