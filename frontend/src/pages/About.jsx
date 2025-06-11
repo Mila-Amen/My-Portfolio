@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/outline";
 import SkillMarquee from "../components/SkillMarquee";
 import { LanguageContext } from "../context/LanguageContext.jsx";
+import Particles from "../components/Particles.jsx";
 
 function About() {
   const { language } = useContext(LanguageContext);
@@ -88,124 +89,139 @@ function About() {
   const letters = content[language].smarter.split("");
 
   return (
-    <section className="mt-10 py-16 px-4 sm:px-6 lg:px-20 bg-black">
-      <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-10 flex flex-wrap gap-3 items-center">
-        <span className="text-gray-400">{content[language].code}</span>
-        <motion.span
-          className="inline-flex text-transparent stroke-white stroke-[1.5px] font-extrabold"
-          style={{ WebkitTextStroke: "1.5px white" }}
-          initial="hidden"
-          animate="visible"
-          variants={{
-            visible: {
-              transition: {
-                staggerChildren: 0.12,
-                delayChildren: 0.3,
+    <>
+      <Particles
+        className="fixed inset-0 w-full h-full -z-10"
+        particleCount={500}
+        particleSpread={15}
+        speed={0.1}
+        particleColors={["#2dd4bf", "#0f766e", "#5eead4"]}
+        moveParticlesOnHover={true}
+        particleHoverFactor={2}
+        alphaParticles={false}
+        particleBaseSize={120}
+        sizeRandomness={5}
+        cameraDistance={10}
+        disableRotation={false}
+      />
+      <section className="mt-10 py-16 px-4 sm:px-6 lg:px-20 bg-transparent">
+        <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-10 flex flex-wrap gap-3 items-center">
+          <span className="text-gray-400">{content[language].code}</span>
+          <motion.span
+            className="inline-flex text-transparent stroke-white stroke-[1.5px] font-extrabold"
+            style={{ WebkitTextStroke: "1.5px white" }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.12,
+                  delayChildren: 0.3,
+                },
               },
-            },
-          }}>
-          {letters.map((letter, index) => (
-            <motion.span
-              key={index}
-              variants={{
-                hidden: { opacity: 0, y: 10 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              className="inline-block">
-              {letter}
-            </motion.span>
-          ))}
-        </motion.span>
-      </h2>
+            }}>
+            {letters.map((letter, index) => (
+              <motion.span
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                className="inline-block">
+                {letter}
+              </motion.span>
+            ))}
+          </motion.span>
+        </h2>
 
-      <div className="flex flex-col lg:flex-row items-start gap-8 bg-black">
-        {/* Paragraph */}
-        <div className="flex-1">
-          <p className="text-gray-400 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-5xl text-justify">
-            {content[language].paragraph}
-          </p>
+        <div className="flex flex-col lg:flex-row items-start gap-8 bg-black">
+          {/* Paragraph */}
+          <div className="flex-1">
+            <p className="text-gray-400 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-5xl text-justify">
+              {content[language].paragraph}
+            </p>
+          </div>
+
+          {/* Image */}
+          <div className="w-full lg:w-auto lg:max-w-lg">
+            <img
+              src="/aboutTech.jpg"
+              alt="Developer profile"
+              className="w-full h-auto rounded-lg object-cover"
+            />
+          </div>
         </div>
 
-        {/* Image */}
-        <div className="w-full lg:w-auto lg:max-w-lg">
-          <img
-            src="/aboutTech.jpg"
-            alt="Developer profile"
-            className="w-full h-auto rounded-lg object-cover"
-          />
-        </div>
-      </div>
-
-      {/* Design & Results Section */}
-      <h1 className="mt-10 text-white text-4xl sm:text-8xl font-bold flex flex-wrap gap-2 items-center">
-        {content[language].idea}
-        <motion.span
-          className="inline-flex text-transparent stroke-white stroke-[1.5px] font-extrabold"
-          style={{ WebkitTextStroke: "1.5px white" }}
-          initial="hidden"
-          animate="visible"
-          variants={{
-            visible: {
-              transition: {
-                staggerChildren: 0.12,
-                delayChildren: 0.3,
+        {/* Design & Results Section */}
+        <h1 className="mt-10 text-white text-4xl sm:text-8xl font-bold flex flex-wrap gap-2 items-center">
+          {content[language].idea}
+          <motion.span
+            className="inline-flex text-transparent stroke-white stroke-[1.5px] font-extrabold"
+            style={{ WebkitTextStroke: "1.5px white" }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.12,
+                  delayChildren: 0.3,
+                },
               },
-            },
-          }}>
-          {content[language].flawlessly.split("").map((letter, index) => (
-            <motion.span
-              key={index}
-              variants={{
-                hidden: { opacity: 0, y: 10 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              className="inline-block">
-              {letter}
-            </motion.span>
-          ))}
-        </motion.span>
-        {content[language].executed}
-      </h1>
+            }}>
+            {content[language].flawlessly.split("").map((letter, index) => (
+              <motion.span
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                className="inline-block">
+                {letter}
+              </motion.span>
+            ))}
+          </motion.span>
+          {content[language].executed}
+        </h1>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true }}
-        className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-gray-800 p-4 rounded-2xl">
+            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              <LightBulbIcon className="h-10 w-10 text-teal-400 mb-5" />
+              {content[language].design}
+            </h3>
+            <p className="text-gray-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-4xl">
+              {content[language].designText}
+            </p>
+          </div>
 
-        <div className="bg-gray-800 p-4 rounded-2xl">
-          <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            <LightBulbIcon className="h-10 w-10 text-teal-400 mb-5" />
-            {content[language].design}
-          </h3>
-          <p className="text-gray-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-4xl">
-            {content[language].designText}
-          </p>
-        </div>
+          <div className="bg-gray-800 p-4 rounded-2xl">
+            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              <ChartBarIcon className="h-10 w-10 text-teal-400 mb-5" />
+              {content[language].results}
+            </h3>
+            <p className="text-gray-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-4xl">
+              {content[language].resultsText}
+            </p>
+          </div>
 
-        <div className="bg-gray-800 p-4 rounded-2xl">
-          <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            <ChartBarIcon className="h-10 w-10 text-teal-400 mb-5" />
-            {content[language].results}
-          </h3>
-          <p className="text-gray-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-4xl">
-            {content[language].resultsText}
-          </p>
-        </div>
-
-        <div className="bg-gray-800 p-4 rounded-2xl">
-          <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            <UsersIcon className="h-10 w-10 text-teal-400 mb-5" />
-            {content[language].collaboration}
-          </h3>
-          <p className="text-gray-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-4xl">
-            {content[language].collaborationText}
-          </p>
-        </div>
-      </motion.div>
-      <SkillMarquee />
-    </section>
+          <div className="bg-gray-800 p-4 rounded-2xl">
+            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              <UsersIcon className="h-10 w-10 text-teal-400 mb-5" />
+              {content[language].collaboration}
+            </h3>
+            <p className="text-gray-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-4xl">
+              {content[language].collaborationText}
+            </p>
+          </div>
+        </motion.div>
+        <SkillMarquee />
+      </section>
+    </>
   );
 }
 

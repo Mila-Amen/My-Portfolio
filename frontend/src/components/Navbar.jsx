@@ -57,16 +57,18 @@ export default function Navbar() {
           <NavLink to="/projects" className="hover:text-teal-400">
             {labels.projects}
           </NavLink>
-          <NavLink to="/services" className="hover:text-teal-400">
-            {labels.services}
-          </NavLink>
+
           <NavLink to="/contact" className="hover:text-teal-400">
             {labels.contact}
           </NavLink>
 
-          <button className="bg-gray-800 text-white px-4 py-1 rounded-full text-xs border border-teal-500">
+          <a
+            href="https://wa.me/4915736711429?text=Hello%2C%20I'm%20interested%20in%20your%20services"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gray-800 text-white px-4 py-1 rounded-full text-xs border border-teal-500 hover:bg-teal-600 transition">
             {labels.available}
-          </button>
+          </a>
 
           {/* Language Dropdown */}
           <div className="relative inline-block w-16 text-center">
@@ -79,8 +81,7 @@ export default function Navbar() {
               }
               aria-haspopup="listbox"
               aria-expanded={isLangOpen}
-              className="cursor-pointer text-white shadow-md px-3 py-1 flex items-center justify-center gap-1 rounded-md hover:bg-gray-800 transition"
-            >
+              className="cursor-pointer text-white shadow-md px-3 py-1 flex items-center justify-center gap-1 rounded-md hover:bg-gray-800 transition">
               {language}
               <ChevronDown size={16} className="select-none" />
             </div>
@@ -90,8 +91,7 @@ export default function Navbar() {
                 role="listbox"
                 tabIndex={-1}
                 aria-activedescendant={`lang-${language}`}
-                className="absolute right-0 z-20 bg-black text-white border border-gray-700 rounded-md shadow-lg mt-1 min-w-[5rem] overflow-hidden"
-              >
+                className="absolute right-0 z-20 bg-black text-white border border-gray-700 rounded-md shadow-lg mt-1 min-w-[5rem] overflow-hidden">
                 {["EN", "DE"].map((lang) => (
                   <li
                     id={`lang-${lang}`}
@@ -107,8 +107,7 @@ export default function Navbar() {
                     tabIndex={0}
                     className={`px-4 py-2 cursor-pointer hover:bg-teal-600 ${
                       language === lang ? "bg-teal-700 font-semibold" : ""
-                    }`}
-                  >
+                    }`}>
                     {lang}
                   </li>
                 ))}
@@ -122,8 +121,7 @@ export default function Navbar() {
           <button
             onClick={toggleMenu}
             className="text-white hover:text-teal-400"
-            aria-label="Toggle menu"
-          >
+            aria-label="Toggle menu">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -136,54 +134,47 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-black/90 px-4 py-4 text-sm font-semibold rounded-b-lg"
-          >
+            className="md:hidden bg-black/90 px-4 py-4 text-sm font-semibold rounded-b-lg">
             <NavLink
               to="/"
               className="block py-2 hover:text-teal-400"
-              onClick={() => setIsMenuOpen(false)}
-            >
+              onClick={() => setIsMenuOpen(false)}>
               {labels.home}
             </NavLink>
             <NavLink
               to="/about"
               className="block py-2 hover:text-teal-400"
-              onClick={() => setIsMenuOpen(false)}
-            >
+              onClick={() => setIsMenuOpen(false)}>
               {labels.about}
             </NavLink>
             <NavLink
               to="/projects"
               className="block py-2 hover:text-teal-400"
-              onClick={() => setIsMenuOpen(false)}
-            >
+              onClick={() => setIsMenuOpen(false)}>
               {labels.projects}
             </NavLink>
-            <NavLink
-              to="/services"
-              className="block py-2 hover:text-teal-400"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {labels.services}
-            </NavLink>
+
             <NavLink
               to="/contact"
               className="block py-2 hover:text-teal-400"
-              onClick={() => setIsMenuOpen(false)}
-            >
+              onClick={() => setIsMenuOpen(false)}>
               {labels.contact}
             </NavLink>
 
-            <button className="w-full mt-2 bg-gray-800 text-white px-4 py-2 rounded-full text-xs border border-teal-500">
+            <a
+              href="https://wa.me/4915736711429?text=Hello%2C%20I'm%20interested%20in%20your%20services"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block mt-2 w-full bg-gray-800 text-white px-4 py-2 rounded-full text-xs border border-teal-500 hover:bg-teal-600 transition text-center"
+              onClick={() => setIsMenuOpen(false)}>
               {labels.available}
-            </button>
+            </a>
 
             {/* Language Dropdown in Mobile */}
             <div className="relative mt-4 text-center">
               <div
                 onClick={toggleLangDropdown}
-                className="text-white shadow-md px-3 py-1 cursor-pointer inline-flex items-center gap-1 justify-center rounded-md hover:bg-gray-800 transition"
-              >
+                className="text-white shadow-md px-3 py-1 cursor-pointer inline-flex items-center gap-1 justify-center rounded-md hover:bg-gray-800 transition">
                 {language}
                 <ChevronDown size={16} />
               </div>
@@ -193,8 +184,7 @@ export default function Navbar() {
                     <li
                       key={lang}
                       onClick={() => selectLanguage(lang)}
-                      className="px-4 py-2 hover:bg-teal-600 cursor-pointer"
-                    >
+                      className="px-4 py-2 hover:bg-teal-600 cursor-pointer">
                       {lang}
                     </li>
                   ))}

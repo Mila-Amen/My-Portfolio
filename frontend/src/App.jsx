@@ -7,21 +7,22 @@ import Contact from "./pages/Contact.jsx";
 import Projects from "./pages/Projects.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Footer from "./components/Footer.jsx";
+import Layout from "./components/Layout.jsx";
 
 function App() {
   return (
     <HashRouter>
+      <Layout>
       <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/projects" element={<Projects />} />
       </Routes>
-
       <Footer />
+      </Layout>
     </HashRouter>
   );
 }

@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { LanguageContext } from "../context/LanguageContext";
+import RotatingText from "../components/RotatingText.jsx";
+import Particles from "../components/Particles.jsx";
 
 const projects = [
   {
@@ -67,13 +69,11 @@ const ProjectCard = ({ project, language }) => (
     href={project.live}
     target="_blank"
     rel="noopener noreferrer"
-    className="block"
-  >
+    className="block">
     <motion.div
       whileHover={{ scale: 1.03 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="group relative bg-gray-800 rounded-2xl overflow-hidden shadow-lg cursor-pointer"
-    >
+      className="group relative bg-gray-800 rounded-2xl overflow-hidden shadow-lg cursor-pointer">
       <img
         src={project.image}
         alt={project.title[language]}
@@ -88,23 +88,18 @@ const ProjectCard = ({ project, language }) => (
           {project.tech.map((tech, index) => (
             <span
               key={index}
-              className="text-sm bg-teal-600 text-white px-2 py-1 rounded-full"
-            >
+              className="text-sm bg-teal-600 text-white px-2 py-1 rounded-full">
               {tech}
             </span>
           ))}
         </div>
-        <div
-          className="flex gap-4"
-          onClick={(e) => e.stopPropagation()}
-        >
+        <div className="flex gap-4" onClick={(e) => e.stopPropagation()}>
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-teal-400"
-            onClick={(e) => e.stopPropagation()}
-          >
+            onClick={(e) => e.stopPropagation()}>
             <FaGithub className="text-xl" />
           </a>
           <a
@@ -112,8 +107,7 @@ const ProjectCard = ({ project, language }) => (
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-teal-400"
-            onClick={(e) => e.stopPropagation()}
-          >
+            onClick={(e) => e.stopPropagation()}>
             <FaExternalLinkAlt className="text-xl" />
           </a>
         </div>
@@ -126,14 +120,47 @@ export default function ProjectShowcase() {
   const { language } = useContext(LanguageContext);
 
   return (
-    <section className="px-6 py-20 bg-black mt-10">
-      <h2 className="text-4xl sm:text-6xl font-bold text-white text-center mb-10">
-        {language === "EN" ? "Code. Caffeine." : "Code. Kaffee."}{" "}
-        <span className="text-teal-400">
-          {language === "EN" ? "Repeat." : "Wiederholen."}
+    <section className="relative min-h-[100vh] px-4 py-20 sm:py-32">
+      {/* Particles background */}
+      <Particles
+        className="fixed inset-0 w-full h-full -z-10"
+        particleCount={500}
+        particleSpread={15}
+        speed={0.1}
+        particleColors={["#2dd4bf", "#0f766e", "#5eead4"]}
+        moveParticlesOnHover={true}
+        particleHoverFactor={2}
+        alphaParticles={false}
+        particleBaseSize={120}
+        sizeRandomness={5}
+        cameraDistance={10}
+        disableRotation={false}
+      />
+
+      {/* Content on top */}
+      <h2 className="text-2xl sm:text-6xl font-bold text-white text-center mb-10 flex justify-center items-center gap-2 relative z-20">
+        {language === "EN" ? "Code. Caffeine." : "Code. Kaffee."}
+        <span className="text-teal-400 inline-flex relative z-20">
+          <RotatingText
+            texts={[
+              language === "EN" ? "Innovate." : "Innovieren.",
+              language === "EN" ? "Create." : "Erstellen.",
+              language === "EN" ? "Inspire." : "Inspirieren.",
+            ]}
+            mainClassName="relative z-20 text-2xl sm:text-6xl font-bold text-teal-400 px-1 py-0 rounded-lg"
+            staggerFrom={"last"}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%" }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={2000}
+          />
         </span>
       </h2>
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 relative z-20">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} language={language} />
         ))}

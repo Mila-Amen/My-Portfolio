@@ -54,7 +54,7 @@ export default function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative bg-black flex flex-col md:flex-row items-center justify-between px-6 sm:px-10 pt-32 pb-20 min-h-screen">
+      className="relative bg-transparent flex flex-col md:flex-row items-center justify-between px-6 sm:px-10 pt-32 pb-20 min-h-screen">
       {showSidebar && (
         <div className="mr-6 md:mr-10 lg:mr-16">
           {" "}
@@ -82,6 +82,8 @@ export default function HeroSection() {
           href={`https://wa.me/4915736711429?text=${encodeURIComponent(
             content[language].whatsappText
           )}`}
+          target="_blank"
+          rel="noopener noreferrer"
           className="mx-auto md:mx-0 flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white px-6 py-3 rounded-full w-max shadow-lg">
           <FaWhatsapp className="text-xl" /> {content[language].whatsappLabel}
         </a>
