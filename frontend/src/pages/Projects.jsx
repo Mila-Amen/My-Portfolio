@@ -32,7 +32,7 @@ const projects = [
     tech: ["React", "Framer Motion", "Sanity CMS", "Tailwind CSS"],
     image: "/portfolio.jpg",
     github: "https://github.com/Mila-Amen/My-Portfolio",
-    live: "https://yourportfolio.com",
+    live: "https://my-portfolio-3lq7.onrender.com/#/",
   },
   {
     title: {
