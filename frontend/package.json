@@ -2,6 +2,7 @@
   "name": "my-portfolio",
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://my-portfolio-3lq7.onrender.com/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
