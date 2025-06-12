@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "ready":"npm run build && cp -r ./dist/* ../backend/views"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
