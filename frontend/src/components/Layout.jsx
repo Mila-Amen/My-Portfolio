@@ -6,7 +6,7 @@ export default function Layout({ children }) {
     await loadFull(main);
   };
 
-  const particlesOptions = { /* your particles config */ };
+  const particlesOptions = { };
 
   return (
     <div className="relative min-h-screen">

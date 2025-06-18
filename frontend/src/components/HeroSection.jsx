@@ -58,7 +58,6 @@ export default function HeroSection() {
       {showSidebar && (
         <div className="mr-6 md:mr-10 lg:mr-16">
           {" "}
-          {/* Add right margin here */}
           <VerticalSidebar />
         </div>
       )}

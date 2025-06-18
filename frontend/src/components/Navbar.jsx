@@ -41,12 +41,10 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md text-white">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
         <NavLink to="/">
           <img src="/Logo.png" alt="logo" className="w-40" />
         </NavLink>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 text-md font-semibold">
           <NavLink to="/" className="hover:text-teal-400">
             {labels.home}
@@ -70,7 +68,6 @@ export default function Navbar() {
             {labels.available}
           </a>
 
-          {/* Language Dropdown */}
           <div className="relative inline-block w-16 text-center">
             <div
               role="button"
@@ -116,7 +113,6 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center gap-4">
           <button
             onClick={toggleMenu}
@@ -127,7 +123,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -170,7 +165,6 @@ export default function Navbar() {
               {labels.available}
             </a>
 
-            {/* Language Dropdown in Mobile */}
             <div className="relative mt-4 text-center">
               <div
                 onClick={toggleLangDropdown}

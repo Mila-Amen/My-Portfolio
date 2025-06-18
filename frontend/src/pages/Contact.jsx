@@ -85,7 +85,6 @@ export default function Contact() {
       />
       <section className=" relative z-10 bg-transparent  min-h-screen px-20 py-20 mt-20">
         <div className="grid md:grid-cols-2 gap-12 items-start ">
-          {/* Left: Contact Info */}
           <div>
             <h2 className="text-5xl font-bold mb-4">{t.heading}</h2>
             <p className="text-gray-400 mb-8">{t.subheading}</p>
@@ -127,7 +126,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right: Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <input
               name="name"

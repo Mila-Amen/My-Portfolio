@@ -121,7 +121,6 @@ export default function ProjectShowcase() {
 
   return (
     <section className="relative min-h-[100vh] px-4 py-20 sm:py-32">
-      {/* Particles background */}
       <Particles
         className="fixed inset-0 w-full h-full -z-10"
         particleCount={500}
@@ -137,7 +136,6 @@ export default function ProjectShowcase() {
         disableRotation={false}
       />
 
-      {/* Content on top */}
       <h2 className="text-2xl sm:text-6xl font-bold text-white text-center mb-10 flex justify-center items-center gap-2 relative z-20">
         {language === "EN" ? "Code. Caffeine." : "Code. Kaffee."}
         <span className="text-teal-400 inline-flex relative z-20">

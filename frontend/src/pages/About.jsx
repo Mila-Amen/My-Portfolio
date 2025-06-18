@@ -135,14 +135,12 @@ function About() {
         </h2>
 
         <div className="flex flex-col lg:flex-row items-start gap-8 bg-black">
-          {/* Paragraph */}
           <div className="flex-1">
             <p className="text-gray-400 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-5xl text-justify">
               {content[language].paragraph}
             </p>
           </div>
 
-          {/* Image */}
           <div className="w-full lg:w-auto lg:max-w-lg">
             <img
               src="/aboutTech.jpg"
@@ -152,7 +150,6 @@ function About() {
           </div>
         </div>
 
-        {/* Design & Results Section */}
         <h1 className="mt-10 text-white text-4xl sm:text-8xl font-bold flex flex-wrap gap-2 items-center">
           {content[language].idea}
           <motion.span
